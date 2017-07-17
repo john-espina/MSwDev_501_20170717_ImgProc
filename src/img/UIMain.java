@@ -7,7 +7,7 @@ import ecs100.UIButtonListener;
 
 public class UIMain {
 
-	private static String fileName = "C://greyRose.PGM";
+	private static String fileName = "D://lib//resources//greyRose.PGM";
 	private static int[][] currentArray;
 
 	private UIMain() {

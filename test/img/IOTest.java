@@ -8,7 +8,7 @@ import org.junit.Test;
 
 public class IOTest {
 
-	String fileName = "C://greyRose.PGM";
+	String fileName = "D://lib//resources//greyRose.PGM";
 
 	@Test
 	public void getLineTest() throws IOException {
