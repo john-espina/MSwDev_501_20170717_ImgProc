@@ -1,0 +1,72 @@
+public void loadPGMImage(String filename) {
+
+		try {
+			Scanner sc = new Scanner(new File(filename));
+			while (sc.hasNext()) {
+				identifier = sc.nextLine();
+				if (identifier.equals("P3")) {
+
+					width = sc.nextInt();
+					height = sc.nextInt();
+					colour = sc.nextInt();
+					
+					// each colour is represented by three numbers
+					// these three numbers are assigned to red, green and blue
+					red = new int[height][width];
+					green = new int[height][width];
+					blue = new int[height][width];
+
+					pgm = new int[height][width];
+					for (int i = 0; i < height; i++) {
+						for (int j = 0; j < width; j++) {
+							//the next three token to be scanned
+							//represents the color for one pixel 
+							red[i][j] = sc.nextInt();
+							green[i][j] = sc.nextInt();
+							blue[i][j] = sc.nextInt();
+						}
+
+					}
+				} else {
+
+					width = sc.nextInt();
+					height = sc.nextInt();
+					colour = sc.nextInt();
+					pgm = new int[height][width];
+					for (int i = 0; i < height; i++) {
+						for (int j = 0; j < width; j++) {
+							pgm[i][j] = sc.nextInt();
+						}
+
+					}
+				}
+			}
+
+			sc.close();
+		} catch (FileNotFoundException e) {
+			UI.printf("Error loading file: %s%n", e);
+			e.printStackTrace();
+		}
+
+	}
+
+	private void renderImage() {
+		if (identifier.equals("P3")) {
+			for (int i = 0; i < height - 2; i++) {
+				for (int j = 0; j < width - 2; j++) {
+					Color col = new Color(red[i][j], green[i][j], blue[i][j]);
+					UI.setColor(col);
+					UI.fillRect(i, j, 1, 1);
+				}
+			}
+		} else {
+			for (int i = 0; i < height - 2; i++) {
+				for (int j = 0; j < width - 2; j++) {
+					Color col = new Color(pgm[i][j], pgm[i][j], pgm[i][j]);
+					UI.setColor(col);
+					UI.fillRect(i, j, 1, 1);
+				}
+			}
+		}
+
+	}
