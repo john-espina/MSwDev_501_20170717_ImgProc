@@ -5,6 +5,10 @@ import java.io.IOException;
 import ecs100.UI;
 import ecs100.UIButtonListener;
 
+/*
+ * https://ecs.victoria.ac.nz/Courses/SWEN501_2017T2/ImageProcessing
+ */
+
 public class UIMain {
 
 	private static String fileName = "D://lib//resources//greyRose.PGM";
